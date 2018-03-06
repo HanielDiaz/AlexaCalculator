@@ -1,11 +1,10 @@
-
 "use strict";
 
 // Include the Alexa SDK
 var Alexa = require("aws-sdk");
 
-// "handlers" object handles the Alexa requests
-var handlers = {
+// "handler" object handles the Alexa requests
+var handler = {
 
  // functions in here mapped to intents in the Alexa Skill
 
@@ -25,11 +24,10 @@ var handlers = {
     case "multiply":
       speechOutput = "" + (this.event.request.intent.slots.A.value * this.event.request.intent.slots.B.value)
     break;
-
-    this.emit(':tellWithCard', speechOutput, skillName, speechOutput);
   }
+  this.emit(':tellWithCard', speechOutput);
 
-}
+},
 
  "Authors": function ()
  {
@@ -90,10 +88,10 @@ function divTwo(a, b)
 exports.handler = function(event, context, callback)
 {
  // setting up alexa object
- var alexa = Alexa.handlers(event, context);
+ var alexa = Alexa.handler(event, context);
 
- // registers the handlers object
- alexa.registerHandlers(handlers);
+ // registers the handler object
+ alexa.registerHandlers(handler);
 
  // executes the code
  alexa.execute();
