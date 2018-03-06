@@ -13,16 +13,16 @@ var handlers = {
 
   switch(this.event.request.intent.slots.Op.value){
     case "add":
-      speechOutput = "" + (this.event.request.intent.slots.A.value + this.event.request.intent.slots.B.value)
+      speechOutput = "" + addTwo(this.event.request.intent.slots.A.value, this.event.request.intent.slots.B.value)
     break;
     case "subtract":
-      speechOutput = "" + (this.event.request.intent.slots.A.value - this.event.request.intent.slots.B.value)
+      speechOutput = "" + subTwo(this.event.request.intent.slots.A.value, this.event.request.intent.slots.B.value)
     break
     case "divide":
-      speechOutput = "" + (this.event.request.intent.slots.A.value / this.event.request.intent.slots.B.value)
+      speechOutput = "" + divTwo(this.event.request.intent.slots.A.value, this.event.request.intent.slots.B.value)
     break;
     case "multiply":
-      speechOutput = "" + (this.event.request.intent.slots.A.value * this.event.request.intent.slots.B.value)
+      speechOutput = "" + multTwo(this.event.request.intent.slots.A.value, this.event.request.intent.slots.B.value)
     break;
   }
   this.emit(':tellWithCard', speechOutput);
