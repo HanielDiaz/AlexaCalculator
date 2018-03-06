@@ -13,16 +13,19 @@ var handlers = {
 
   switch(this.event.request.intent.slots.Op.value){
     case "add":
-      speechOutput = "" + addTwo(this.event.request.intent.slots.A.value, this.event.request.intent.slots.B.value)
+      speechOutput = "" + addTwo(parseInt(this.event.request.intent.slots.A.value), parseInt(this.event.request.intent.slots.B.value));
     break;
     case "subtract":
-      speechOutput = "" + subTwo(this.event.request.intent.slots.A.value, this.event.request.intent.slots.B.value)
+      speechOutput = "" + subTwo(parseInt(this.event.request.intent.slots.A.value), parseInt(this.event.request.intent.slots.B.value));
     break
     case "divide":
-      speechOutput = "" + divTwo(this.event.request.intent.slots.A.value, this.event.request.intent.slots.B.value)
+      speechOutput = "" + divTwo(parseInt(this.event.request.intent.slots.A.value), parseInt(this.event.request.intent.slots.B.value));
     break;
     case "multiply":
-      speechOutput = "" + multTwo(this.event.request.intent.slots.A.value, this.event.request.intent.slots.B.value)
+      speechOutput = "" + multTwo(parseInt(this.event.request.intent.slots.A.value), parseInt(this.event.request.intent.slots.B.value));
+    break;
+    case default:
+      speechOutput = "WAAAAT";
     break;
   }
   this.emit(':tellWithCard', speechOutput);
