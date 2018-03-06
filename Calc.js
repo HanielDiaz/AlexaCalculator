@@ -8,6 +8,28 @@ var handlers = {
 
  // functions in here mapped to intents in the Alexa Skill
 
+"Calculate": function () {
+  var speechOutput = "";
+
+  switch(this.event.request.intent.slots.Op.value){
+    case "add":
+      speechOutput = "" + (this.event.request.intent.slots.A.value + this.event.request.intent.slots.B.value)
+    break;
+    case "subtract":
+      speechOutput = "" + (this.event.request.intent.slots.A.value - this.event.request.intent.slots.B.value)
+    break
+    case "divide":
+      speechOutput = "" + (this.event.request.intent.slots.A.value / this.event.request.intent.slots.B.value)
+    break;
+    case "multiply":
+      speechOutput = "" + (this.event.request.intent.slots.A.value * this.event.request.intent.slots.B.value)
+    break;
+
+    this.emit(':tellWithCard', speechOutput, skillName, speechOutput);
+  }
+
+}
+
  "Authors": function ()
  {
    // response.speak accepts string response
