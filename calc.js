@@ -26,7 +26,6 @@ var handlers = {
     case "multiply":
       speechOutput = "" + multTwo(parseInt(this.event.request.intent.slots.A.value), parseInt(this.event.request.intent.slots.B.value));
     break;
-<<<<<<< HEAD
     case "modulus":
     case "mod":
       speechOutput = "" + modTwo(parseInt(this.event.request.intent.slots.A.value), parseInt(this.event.request.intent.slots.B.value));
@@ -43,10 +42,7 @@ var handlers = {
     case "less":
       speechOutput = "" + ltTwo(parseInt(this.event.request.intent.slots.A.value), parseInt(this.event.request.intent.slots.B.value));
     break;
-    case default:
-=======
     default:
->>>>>>> f69593c6e705b215d1e0a7d5b14bf3900b9a4e50
       speechOutput = "WAAAAT";
     break;
   }
