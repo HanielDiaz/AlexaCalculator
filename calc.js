@@ -13,18 +13,20 @@ var handlers = {
 
   switch(this.event.request.intent.slots.Op.value){
     case "add":
+    case "plus":
       speechOutput = "" + addTwo(parseInt(this.event.request.intent.slots.A.value), parseInt(this.event.request.intent.slots.B.value));
     break;
     case "subtract":
+    case "minus":
       speechOutput = "" + subTwo(parseInt(this.event.request.intent.slots.A.value), parseInt(this.event.request.intent.slots.B.value));
-    break
+    break;
     case "divide":
       speechOutput = "" + divTwo(parseInt(this.event.request.intent.slots.A.value), parseInt(this.event.request.intent.slots.B.value));
     break;
     case "multiply":
       speechOutput = "" + multTwo(parseInt(this.event.request.intent.slots.A.value), parseInt(this.event.request.intent.slots.B.value));
     break;
-    case default:
+    default:
       speechOutput = "WAAAAT";
     break;
   }
@@ -45,6 +47,8 @@ var handlers = {
    this.response.speak("Welcome to Echo Calculator.");
    this.emit(":responseReady");
  }
+
+
 };
 
 
