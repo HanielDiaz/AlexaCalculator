@@ -26,12 +26,27 @@ var handlers = {
     case "multiply":
       speechOutput = "" + multTwo(parseInt(this.event.request.intent.slots.A.value), parseInt(this.event.request.intent.slots.B.value));
     break;
+    case "modulus":
+    case "mod":
+      speechOutput = "" + modTwo(parseInt(this.event.request.intent.slots.A.value), parseInt(this.event.request.intent.slots.B.value));
+    break;
+    case "equal":
+      speechOutput = "" + eqTwo(parseInt(this.event.request.intent.slots.A.value), parseInt(this.event.request.intent.slots.B.value));
+    break;
+    case "inequal":
+      speechOutput = "" + neqTwo(parseInt(this.event.request.intent.slots.A.value), parseInt(this.event.request.intent.slots.B.value));
+    break;
+    case "greater":
+      speechOutput = "" + gtTwo(parseInt(this.event.request.intent.slots.A.value), parseInt(this.event.request.intent.slots.B.value));
+    break;
+    case "less":
+      speechOutput = "" + ltTwo(parseInt(this.event.request.intent.slots.A.value), parseInt(this.event.request.intent.slots.B.value));
+    break;
     default:
       speechOutput = "WAAAAT";
     break;
   }
   this.emit(':tellWithCard', speechOutput);
-
 },
 
  "Authors": function ()
@@ -50,8 +65,6 @@ var handlers = {
 
 
 };
-
-
 
 /*
 * It would be pretty cool to do some recursive kinda stuff; like each parameter really
@@ -77,6 +90,31 @@ function multTwo(a, b)
 function divTwo(a, b)
 {
  return a / b;
+}
+
+function modTwo(a, b)
+{
+ return a % b;
+}
+
+function eqTwo(a, b)
+{
+ return a == b;
+}
+
+function neqTwo(a, b)
+{
+ return a != b;
+}
+
+function ltTwo(a, b)
+{
+ return a > b;
+}
+
+function gtTwo(a, b)
+{
+ return a < b;
 }
 
 /* Can request response from skill using 2 styles:
